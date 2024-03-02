@@ -1,0 +1,35 @@
+﻿@page
+@model NetCoreDemo.Areas.Master.Pages.Employees.IndexModel
+@{
+}
+
+<h2 class="mb-3">Employee List</h2>
+<div class="card shadow-sm">
+    <div class="card-body">
+        <a asp-area="Master" asp-page="/Employees/Create" class="btn btn-primary mb-3">Create</a>
+
+        <table class="table">
+            <thead class="bg-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>JoinDate</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var emp in Model.EmployeeList)
+                {
+                    <tr>
+                        <td>@emp.EmployeeId</td>
+                        <td>@emp.EmployeeName</td>
+                        <td>@emp.JoinDate.Value.ToString("dd/MMM/yyyy")</td>
+                        <td>@emp.PhoneNumber</td>
+                        <td>@emp.DetailAddress</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
