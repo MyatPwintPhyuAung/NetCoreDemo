@@ -1,19 +1,18 @@
 ﻿@page
-@model NetCoreDemo.Areas.Master.Pages.Employees.CreateModel
+@model NetCoreDemo.Areas.Master.Pages.Employees.EditModel
 @{
 }
-
-
 <div class="row d-flex justify-content-center">
     <div class="col-3">
     </div>
     <div class="col-6">
         <div class="card w-100">
-            <div class="card-header"><h2>Create Employee</h2></div>
+            <div class="card-header"><h2>Edit Employee</h2></div>
             <div class="card-body">
                 <form method="post" class="needs-validation">
                     <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-
+                    <input asp-for="InputModel.CreatedOn" hidden />
+                    <input asp-for="InputModel.CreatedBy" hidden />
                     <div class="row">
                         <div class="col-6">
                             <div class="mb-2">
@@ -46,18 +45,18 @@
                     </div>
                     <div class="mb-2">
                         <label class="mb-2">Detail Address</label>
-                       @*  <input asp-for="InputModel.DetailAddress" type="text" class="form-control" placeholder="Enter Address" /> *@
-                       <textarea asp-for="InputModel.DetailAddress" class="form-control" placeholder="Enter Address"></textarea>
+                        @*  <input asp-for="InputModel.DetailAddress" type="text" class="form-control" placeholder="Enter Address" /> *@
+                        <textarea asp-for="InputModel.DetailAddress" class="form-control" placeholder="Enter Address"></textarea>
                     </div>
                     <div class="mb-2">
                         <label class="mb-2">Gender</label>
                         <select class="form-control" asp-for="InputModel.Gender" required>
                             <option value="" selected disabled>--Choose Gender--</option>
                             <option value="M">Male</option>
-                            <option vlaue="F">Female</option>
+                            <option value="F">Female</option>
                         </select>
                     </div>
-                    <button class="btn btn-success">Save</button>
+                    <button class="btn btn-info">Update</button>
                 </form>
             </div>
         </div>
